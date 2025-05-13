@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frais de Livraison - AbiSpeed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📦 Nos Frais de Livraison</h1>
+  <p>🔍 Utilisez le champ ci-dessous pour rechercher une ville :</p>
+  <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Rechercher une ville...">
+
+  <table id="deliveryTable">
+    <thead>
+      <tr>
+        <th>Ville</th>
+        <th>Frais de Livraison</th>
+        <th>Délai</th>
+        <th>Refus</th>
+        <th>Annulation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Casablanca</td><td>14 MAD</td><td>24h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Bouskoura-Centre</td><td>24 MAD</td><td>24h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Errahma</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Mohammedia</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Mediouna</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Nouacer</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Ain Harrouda</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Tit Melil</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Deroua</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <tr><td>Tamaris</td><td>24 MAD</td><td>24h - 48h</td><td>0 MAD</td><td>0 MAD</td></tr>
+      <!-- Ajoutez ici d'autres villes -->
+    </tbody>
+  </table>
+
+  <script>
+    function filterTable() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("deliveryTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+        }       
+      }
+    }
+  </script>
+
+</body>
+</html>
